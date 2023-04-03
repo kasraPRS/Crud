@@ -1,0 +1,65 @@
+<!-- regin crud form -->
+<mat-card>
+    <mat-card-header>
+        This is the CRUD test for interview
+    </mat-card-header>
+    <mat-card-content>
+        <form class="example-form" [formGroup]="formData" (ngSubmit)="onSubmit()">
+            <!-- first name region -->
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Name:</mat-label>
+                <input matInput placeholder="Your First name" formControlName="FirstName"
+                    (focus)="checkData('FirstName')">
+            </mat-form-field>
+
+            <!-- end of first name region -->
+
+            <!-- last name region -->
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Lastname:</mat-label>
+                <input matInput placeholder="Your Lastname" formControlName="LastName" (focus)="checkData('LastName')">
+
+            </mat-form-field>
+            <!--end of last name region -->
+
+            <!-- date of birth region -->
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Choose a date</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="DateOfBrith"
+                    (focus)="checkData('DateOfBrith')">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <!--end of date of birth region -->
+
+            <!-- phone region -->
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Phone number:</mat-label>
+                <input matInput placeholder="Your phone number" formControlName="PhoneNumber">
+            </mat-form-field>
+            <!--end of phone region -->
+
+            <!-- email region -->
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Email:</mat-label>
+                <input matInput placeholder="Your Email" formControlName="Email" (focus)="checkData('Email')">
+            </mat-form-field>
+            <!--end of email region -->
+
+            <!-- bank accout region -->
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Bank account:</mat-label>
+                <input matInput placeholder="Your Bank account" formControlName="BankAccountNumber">
+            </mat-form-field>
+            <!--end of bank accout region -->
+
+            <button mat-raised-button color="primary" [disabled]="formData.invalid">Submit!</button>
+        </form>
+    </mat-card-content>
+    <mat-card-footer *ngIf="">
+        <p>
+            Your user add successfully!!!
+        </p>
+    </mat-card-footer>
+</mat-card>
